@@ -220,7 +220,7 @@ const updateVisibleRay = function*(laser: Entity, world: World): Behaviour<void>
     player.getComponent('Player').targetPosition = end
 
     g.clear()
-    g.lineStyle(1, 0xff0000)
+    g.lineStyle(1, 0xff0000, undefined, undefined, true)
     g.moveTo(start.x, start.y)
     g.lineTo(end.x, end.y)
     g.beginFill(0xff0000)
