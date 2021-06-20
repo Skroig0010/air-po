@@ -1,5 +1,7 @@
 import { World } from '@core/ecs/world'
 import { Vec2 } from '@core/math/vec2'
+import { chaseCameraAI } from '@game/ai/entity/camera/chaseCameraAI'
+import { CameraFactory } from '@game/entities/cameraFactory'
 import { LaserSightFactory } from '@game/entities/laserSightFactory'
 import { PlayerFactory } from '@game/entities/object/playerFactory'
 import { PlayerUIFactory } from '@game/entities/playerUIFactory'
@@ -110,9 +112,13 @@ export class MapBuilder {
     const pos = this.playerSpanwners.get(id)
     assert(pos, `player spawner ID '${id}' is not found`)
 
-    this.world.addEntity(new PlayerFactory(pos, this.world).create())
+    const player = new PlayerFactory(pos, this.world).create()
+    const camera = new CameraFactory().create()
+    camera.getComponent('Camera').aiStack.push(chaseCameraAI(camera, player))
+    this.world.addEntity(player)
     this.world.addEntity(new LaserSightFactory(this.world).create())
     this.world.addEntity(new PlayerUIFactory(this.world).create())
+    this.world.addEntity(camera)
   }
 }
 

@@ -2,11 +2,9 @@ import { World } from '@core/ecs/world'
 import { ControlSystem } from '@game/systems/controlSystem'
 import { pauseWorldAI } from '@game/ai/world/pause/pauseWorldAI'
 import DrawSystem from '@game/systems/drawSystem'
-import { Entity } from '@core/ecs/entity'
-import { CameraComponent } from '@game/components/cameraComponent'
-import { PositionComponent } from '@game/components/positionComponent'
 import { Container, filters, Graphics } from 'pixi.js'
 import { windowSize } from '@core/application'
+import { CameraFactory } from '@game/entities/cameraFactory'
 
 export class PauseWorldFactory {
   public create(gameWorld: World): World {
@@ -41,9 +39,7 @@ export class PauseWorldFactory {
       new DrawSystem(world, worldContainer, worldUIContainer, uiContainer)
     )
 
-    const camera = new Entity()
-    camera.addComponent('Camera', new CameraComponent())
-    camera.addComponent('Position', new PositionComponent(160, 120))
+    const camera = new CameraFactory().create()
     world.addEntity(camera)
 
     return world

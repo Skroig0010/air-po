@@ -6,7 +6,6 @@ import { playerAI } from '@game/ai/entity/player/playerAI'
 import { AIComponent } from '@game/components/aiComponent'
 import { AirHolderComponent } from '@game/components/airHolderComponent'
 import { AnimationStateComponent } from '@game/components/animationStateComponent'
-import { CameraComponent } from '@game/components/cameraComponent'
 import { Collider, ColliderComponent, buildColliders } from '@game/components/colliderComponent'
 import { HorizontalDirectionComponent } from '@game/components/directionComponent'
 import { DrawComponent } from '@game/components/drawComponent'
@@ -151,8 +150,6 @@ export class PlayerFactory extends EntityFactory {
     entity.addComponent('Player', player)
     entity.addComponent('AirHolder', airHolder)
     entity.addComponent('Equipment', equipment)
-    // TODO: カメラをプレイヤーから分離する
-    entity.addComponent('Camera', new CameraComponent())
     entity.addComponent('HorizontalDirection', new HorizontalDirectionComponent(entity, 'Right'))
     return entity
   }

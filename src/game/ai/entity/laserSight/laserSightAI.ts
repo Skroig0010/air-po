@@ -29,15 +29,22 @@ type LaserSightState = LockingAimState | FreeAimState
 
 const updateInvisibleRay = function*(laser: Entity, world: World): Behaviour<void> {
   const playerFamily = new FamilyBuilder(world).include('Player').build()
+  const cameraFamily = new FamilyBuilder(world).include('Camera').build()
   const [collider] = laser.getComponent('Collider').colliders
   while (true) {
     const [player] = playerFamily.entityArray
+    const [camera] = cameraFamily.entityArray
     const mousePosition = MouseController.position
     const ray = collider.geometry as Ray
-    const position = player.getComponent('Position')
+    const playerPosition = player.getComponent('Position')
+    const cameraPosition = camera.getComponent('Position')
+    const mousePositionOnScreen = mousePosition.sub(
+      new Vec2(windowSize.width / 2, windowSize.height / 2)
+    )
+    const mousePositionOnWorld = cameraPosition.add(mousePositionOnScreen)
 
-    ray.origin = position
-    ray.direction = mousePosition.sub(new Vec2(windowSize.width / 2, windowSize.height / 2))
+    ray.origin = playerPosition
+    ray.end = mousePositionOnWorld
     yield
   }
 }
@@ -45,13 +52,9 @@ const updateInvisibleRay = function*(laser: Entity, world: World): Behaviour<voi
 const isDistantEnough = (ray: Ray, entity: Entity): boolean => {
   return ray.distance(entity.getComponent('Position')) > 20
 }
-const shouldLockEntity = (entity: Entity, ray: Ray): boolean => {
+const shouldLockEntity = (entity: Entity): boolean => {
   const isEntityAlive = entity.hasComponent('HP') && entity.getComponent('HP').hp > 0
-  const isEntityCloseEnough =
-    entity
-      .getComponent('Position')
-      .sub(ray.origin)
-      .length() < 160
+  const isEntityCloseEnough = entity.getComponent('Draw').visible
   const forceFreeAiming = MouseController.isMousePressing('Right')
 
   return isEntityAlive && isEntityCloseEnough && !forceFreeAiming
@@ -80,7 +83,7 @@ const getLaserSightStateGenerator = function*(
   const freeAimGenerator = function*(state: FreeAimState): Behaviour<void> {
     while (true) {
       const { entity } = state.hitResult
-      if (entity && shouldLockEntity(entity, ray)) return
+      if (entity && shouldLockEntity(entity)) return
 
       yield
     }
@@ -91,7 +94,7 @@ const getLaserSightStateGenerator = function*(
       const { entity: currentHittingEntity } = state.hitResult
       if (
         currentHittingEntity?.id !== entity.id && // 当たっているEntityが変わっていなければロックし続ける
-        (isDistantEnough(ray, entity) || !shouldLockEntity(entity, ray))
+        (isDistantEnough(ray, entity) || !shouldLockEntity(entity))
       ) {
         return
       }

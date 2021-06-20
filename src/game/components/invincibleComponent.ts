@@ -3,8 +3,8 @@ export class InvincibleComponent {
 
   private invincibleTime = 0
 
-  public setInvincible(): void {
-    this.invincibleTime = InvincibleComponent.INVINCIBLE_TIME
+  public setInvincible(time = InvincibleComponent.INVINCIBLE_TIME): void {
+    this.invincibleTime = time
   }
 
   public decreaseTime(delta: number): void {

@@ -1,0 +1,17 @@
+{
+  "name": "boss1",
+  "path": "boss1.png",
+  "texture": {
+    "size": {
+      "width": 96,
+      "height": 96
+    }
+  },
+  "animation": {
+    "state": {
+      "Close": [0],
+      "Open": [1]
+    },
+    "default": "Close"
+  }
+}

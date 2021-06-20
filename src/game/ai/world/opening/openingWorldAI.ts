@@ -16,7 +16,7 @@ import { savePlayData, StoryStatus } from '@game/playdata/playdata'
 const camera = function*(world: World): Behaviour<void> {
   const camera = new Entity()
   camera.addComponent('Position', new PositionComponent())
-  camera.addComponent('Camera', new CameraComponent())
+  camera.addComponent('Camera', new CameraComponent([]))
   world.addEntity(camera)
 
   while (true) {
@@ -59,7 +59,7 @@ export const openingWorldAI = function*(world: World): Behaviour<void> {
 
   yield* FadeOut(world)
 
-  savePlayData({ status: StoryStatus.Stage, mapName: 'root' })
+  savePlayData({ status: StoryStatus.Stage, mapName: 'teststage' })
 
   const gameWorldFactory = new GameWorldFactory()
   const gameWorld = gameWorldFactory.create(map)

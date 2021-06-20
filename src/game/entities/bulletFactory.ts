@@ -87,8 +87,8 @@ export class BulletFactory extends EntityFactory {
     entity.addComponent(
       'Position',
       new PositionComponent(
-        shooterPosition.x - (direction.x * this.offset.x) / 2,
-        shooterPosition.y + this.offset.y
+        shooterPosition.x + this.offset.x + direction.x / 2,
+        shooterPosition.y + this.offset.y + direction.y / 2
       )
     )
     entity.addComponent(

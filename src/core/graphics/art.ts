@@ -9,6 +9,8 @@ import ballBulletSetting from '@res/setting/ballBullet.json'
 import ballBulletImg from '@res/image/ballBullet.png'
 import balloonVineSetting from '@res/setting/balloonVine.json'
 import balloonVineImg from '@res/image/balloonVine.png'
+import boss1Setting from '@res/setting/boss1.json'
+import boss1Img from '@res/image/boss1.png'
 import dandelionSetting from '@res/setting/dandelion.json'
 import dandelionImg from '@res/image/dandelion.png'
 import dandelionFluffSetting from '@res/setting/dandelionFluff.json'
@@ -102,6 +104,7 @@ export const init = async (): Promise<void> => {
   textureStore.airGeyser = await buildTextureCache(airGeyserImg, airGeyserSetting)
   textureStore.ballBullet = await buildTextureCache(ballBulletImg, ballBulletSetting)
   textureStore.balloonVine = await buildTextureCache(balloonVineImg, balloonVineSetting)
+  textureStore.boss1 = await buildTextureCache(boss1Img, boss1Setting)
   textureStore.dandelion = await buildTextureCache(dandelionImg, dandelionSetting)
   textureStore.dandelionFluff = await buildTextureCache(dandelionFluffImg, dandelionFluffSetting)
   textureStore.enemy1 = await buildTextureCache(enemy1Img, enemy1Setting)

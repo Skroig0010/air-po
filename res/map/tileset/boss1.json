@@ -1,0 +1,14 @@
+{ "columns":2,
+ "image":"..\/..\/image\/boss1.png",
+ "imageheight":96,
+ "imagewidth":192,
+ "margin":0,
+ "name":"boss1",
+ "spacing":0,
+ "tilecount":2,
+ "tiledversion":"2021.03.23",
+ "tileheight":96,
+ "tilewidth":96,
+ "type":"tileset",
+ "version":1.5
+}

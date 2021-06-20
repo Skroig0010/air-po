@@ -28,4 +28,8 @@ export class Ray implements GeometryForCollision {
       .sub(p)
       .length()
   }
+
+  set end(e: Vec2) {
+    this.direction = e.sub(this.origin)
+  }
 }

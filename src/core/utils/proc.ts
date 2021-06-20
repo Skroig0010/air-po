@@ -45,7 +45,7 @@ export class ProcessManager {
     for (const proc of this.processList) {
       for (const name2 of proc.dependency.before ?? []) {
         const processes = this.processList.filter(proc2 => proc2.name === name2)
-        assert(processes.length > 0, `undefined process name: ${name2}`)
+        if (processes.length == 0) continue
         // proc must be executed before proc2
         for (const proc2 of processes) {
           dependencyMap.get(proc2)?.push(proc)
@@ -53,7 +53,7 @@ export class ProcessManager {
       }
       for (const name2 of proc.dependency.after ?? []) {
         const processes = this.processList.filter(proc2 => proc2.name === name2)
-        assert(processes.length > 0, `undefined process name: ${name2}`)
+        if (processes.length == 0) continue
         // proc must be executed after proc2
         for (const proc2 of processes) {
           dependencyMap.get(proc)?.push(proc2)

@@ -11,7 +11,7 @@ import CollisionSystem from './collisionSystem'
 export default class DebugDrawSystem extends System {
   private state = {
     position: false,
-    collider: false,
+    collider: true,
     bvh: false,
   }
 
