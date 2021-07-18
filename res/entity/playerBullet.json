@@ -1,22 +1,22 @@
 {
-    "collider": [
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [0, 0]
-            },
-            "category": "bullet",
-            "mask": ["terrain"],
-            "tag": ["bulletBody"]
-        },
-        {
-            "geometry": {
-              "type": "AABB",
-              "size": [8, 8]
-            },
-            "category": "attack",
-            "mask": ["enemyHitbox"],
-            "tag": ["Attack"]
-        }
-    ]
+  "collider": [
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [0, 0]
+      },
+      "category": "bullet",
+      "mask": ["terrain"],
+      "tag": ["bulletBody"]
+    },
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [8, 8]
+      },
+      "category": "attack",
+      "mask": ["enemyHitbox"],
+      "tag": ["Attack"]
+    }
+  ]
 }

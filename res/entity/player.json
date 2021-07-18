@@ -1,69 +1,69 @@
 {
-    "draw": {
-        "name": "player"
+  "draw": {
+    "name": "player"
+  },
+  "animationState": {},
+  "rigidBody": {
+    "mass": 10,
+    "gravityScale": 1,
+    "airResistance": 2.25
+  },
+  "collider": [
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [13, 16],
+        "maxClipToTolerance": [3, 4]
+      },
+      "category": "physics",
+      "mask": ["terrain"],
+      "tag": ["physics"]
     },
-    "animationState": {},
-    "rigidBody": {
-        "mass": 10,
-        "gravityScale": 1,
-        "airResistance": 2.25
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [13, 16],
+        "maxClipToTolerance": [3, 4]
+      },
+      "category": "playerHitbox"
     },
-    "collider": [
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [13, 16],
-                "maxClipToTolerance": [3, 4]
-            },
-            "category": "physics",
-            "mask": ["terrain"],
-            "tag": ["physics"]
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [13, 16],
-                "maxClipToTolerance": [3, 4]
-            },
-            "category": "playerHitbox"
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [13, 16],
-                "maxClipToTolerance": [3, 4]
-            },
-            "category": "airHolder",
-            "mask": ["air"],
-            "tag": ["airHolderBody"]
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [13, 16],
-                "maxClipToTolerance": [3, 4]
-            },
-            "category": "sensor",
-            "mask": ["item", "equipment", "sensor"],
-            "tag": ["PlayerSensor"]
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "offset": [0, 8],
-                "size": [8, 1],
-                "maxClipToTolerance": [2, 0]
-            },
-            "category": "sensor",
-            "mask": ["terrain"],
-            "tag": ["PlayerFoot"]
-        }
-    ],
-    "airHolder": {
-        "initialQuantity": 0,
-        "maxQuantity": 0,
-        "collectSpeed": 0.05,
-        "consumeSpeed": 0.025,
-        "shouldDamageInSuffocation": true
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [13, 16],
+        "maxClipToTolerance": [3, 4]
+      },
+      "category": "airHolder",
+      "mask": ["air"],
+      "tag": ["airHolderBody"]
+    },
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [13, 16],
+        "maxClipToTolerance": [3, 4]
+      },
+      "category": "sensor",
+      "mask": ["item", "equipment", "sensor"],
+      "tag": ["PlayerSensor"]
+    },
+    {
+      "geometry": {
+        "type": "AABB",
+        "offset": [0, 8],
+        "size": [8, 1],
+        "maxClipToTolerance": [2, 0]
+      },
+      "category": "sensor",
+      "mask": ["terrain"],
+      "tag": ["PlayerFoot"]
     }
+  ],
+  "airHolder": {
+    "initialQuantity": 0,
+    "maxQuantity": 0,
+    "collectSpeed": 0.05,
+    "consumeSpeed": 0.025,
+    "shouldDamageInSuffocation": true
+  }
 }

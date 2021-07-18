@@ -1,17 +1,17 @@
 {
-    "draw": {
-        "name": "moss"
-    },
-    "animationState": {},
-    "collider": [
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [8, 8]
-            },
-            "category": "light",
-            "mask": ["air"],
-            "tag": ["Light"]
-        }
-    ]
+  "draw": {
+    "name": "moss"
+  },
+  "animationState": {},
+  "collider": [
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [8, 8]
+      },
+      "category": "light",
+      "mask": ["air"],
+      "tag": ["Light"]
+    }
+  ]
 }

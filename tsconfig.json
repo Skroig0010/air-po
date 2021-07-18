@@ -17,7 +17,7 @@
       "@res/*": ["res/*"],
       "@utils/*": ["src/core/utils/*"],
       "@game/*": ["src/game/*"],
-      "@core/*": ["src/core/*"],
+      "@core/*": ["src/core/*"]
     }
   }
 }

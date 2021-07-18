@@ -1,16 +1,16 @@
 {
-    "draw": {
-        "name": "dandelionFluff"
-    },
-    "animationState": {},
-    "collider": [
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [16, 32]
-            },
-            "category": "item",
-            "tag": ["Fluff"]
-        }
-    ]
+  "draw": {
+    "name": "dandelionFluff"
+  },
+  "animationState": {},
+  "collider": [
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [16, 32]
+      },
+      "category": "item",
+      "tag": ["Fluff"]
+    }
+  ]
 }

@@ -1,60 +1,60 @@
 {
-    "draw": {
-        "name": "balloonVine"
+  "draw": {
+    "name": "balloonVine"
+  },
+  "animationState": {},
+  "rigidBody": {
+    "mass": 0.0001,
+    "gravityScale": 1
+  },
+  "collider": [
+    {
+      "geometry": {
+        "type": "AABB",
+        "maxClipToTolerance": [2, 2]
+      },
+      "category": "item"
     },
-    "animationState": {},
-    "rigidBody": {
-        "mass": 0.0001,
-        "gravityScale": 1
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [10, 13],
+        "maxClipToTolerance": [2, 2]
+      },
+      "category": "enemyHitbox"
     },
-    "collider": [
-        {
-            "geometry": {
-                "type": "AABB",
-                "maxClipToTolerance": [2, 2]
-            },
-            "category": "item"
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [10, 13],
-                "maxClipToTolerance": [2, 2]
-            },
-            "category": "enemyHitbox"
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [10, 13],
-                "maxClipToTolerance": [2, 2]
-            },
-            "category": "airHolder",
-            "mask": ["air"],
-            "tag": ["airHolderBody"]
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [5, 5]
-            },
-            "category": "physics",
-            "mask": ["terrain"]
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [2, 10]
-            },
-            "category": "sensor",
-            "mask": ["terrain"]
-        }
-    ],
-    "airHolder": {
-        "initialQuantity": 0,
-        "maxQuantity": 10,
-        "collectSpeed": 10,
-        "consumeSpeed": 0,
-        "shouldDamageInSuffocation": false
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [10, 13],
+        "maxClipToTolerance": [2, 2]
+      },
+      "category": "airHolder",
+      "mask": ["air"],
+      "tag": ["airHolderBody"]
+    },
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [5, 5]
+      },
+      "category": "physics",
+      "mask": ["terrain"]
+    },
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [2, 10]
+      },
+      "category": "sensor",
+      "mask": ["terrain"]
     }
+  ],
+  "airHolder": {
+    "initialQuantity": 0,
+    "maxQuantity": 10,
+    "collectSpeed": 10,
+    "consumeSpeed": 0,
+    "shouldDamageInSuffocation": false
+  }
 }

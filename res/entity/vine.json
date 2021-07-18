@@ -1,36 +1,36 @@
 {
-    "draw": {
-        "name": "vine"
+  "draw": {
+    "name": "vine"
+  },
+  "animationState": {},
+  "collider": [
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [16, 16]
+      },
+      "category": "terrain",
+      "mask": ["physics"],
+      "tag": ["physics", "Vine"]
     },
-    "animationState": {},
-    "collider": [
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [16, 16]
-            },
-            "category": "terrain",
-            "mask": ["physics"],
-            "tag": ["physics", "Vine"]
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [14, 5]
-            },
-            "category": "sensor",
-            "mask": ["terrain"],
-            "tag": ["VineWallSensor"]
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [6, 6]
-            },
-            "category": "sensor",
-            "mask": ["air"],
-            "tag": ["VineAirSensor"]
-        }
-    ],
-    "rigidBody": {}
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [14, 5]
+      },
+      "category": "sensor",
+      "mask": ["terrain"],
+      "tag": ["VineWallSensor"]
+    },
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [6, 6]
+      },
+      "category": "sensor",
+      "mask": ["air"],
+      "tag": ["VineAirSensor"]
+    }
+  ],
+  "rigidBody": {}
 }

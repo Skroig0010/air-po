@@ -1,16 +1,16 @@
 {
-    "draw": {
-        "name": "respawn"
-    },
-    "animationState": {},
-    "collider": [
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [48, 48]
-            },
-            "category": "sensor",
-            "mask": ["playerHitbox"]
-        }
-    ]
+  "draw": {
+    "name": "respawn"
+  },
+  "animationState": {},
+  "collider": [
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [48, 48]
+      },
+      "category": "sensor",
+      "mask": ["playerHitbox"]
+    }
+  ]
 }

@@ -15,6 +15,7 @@
   "parserOptions": {
     "sourceType": "module"
   },
+  "ignorePatterns": ["**/node_modules/**/*", "res/stage/**/*.json"],
   "rules": {
     "require-yield": "off",
     "no-constant-condition": [

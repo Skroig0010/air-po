@@ -1,42 +1,42 @@
 {
-    "draw": {
-        "name": "slime1"
+  "draw": {
+    "name": "slime1"
+  },
+  "animationState": {},
+  "rigidBody": {
+    "mass": 10,
+    "gravityScale": 1
+  },
+  "collider": [
+    {
+      "geometry": {
+        "type": "AABB",
+        "offset": [0, 1],
+        "size": [16, 12],
+        "maxClipToTolerance": [2, 2]
+      },
+      "category": "physics",
+      "mask": ["terrain"],
+      "tag": ["physics"]
     },
-    "animationState": {},
-    "rigidBody": {
-        "mass": 10,
-        "gravityScale": 1
+    {
+      "geometry": {
+        "type": "AABB",
+        "offset": [0, 1],
+        "size": [16, 12],
+        "maxClipToTolerance": [2, 2]
+      },
+      "category": "enemyHitbox",
+      "tag": ["HitBox"]
     },
-    "collider": [
-        {
-            "geometry": {
-                "type": "AABB",
-                "offset": [0, 1],
-                "size": [16, 12],
-                "maxClipToTolerance": [2, 2]
-            },
-            "category": "physics",
-            "mask": ["terrain"],
-            "tag": ["physics"]
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "offset": [0, 1],
-                "size": [16, 12],
-                "maxClipToTolerance": [2, 2]
-            },
-            "category": "enemyHitbox",
-            "tag": ["HitBox"]
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [10, 13]
-            },
-            "category": "attack",
-            "mask": ["playerHitbox"],
-            "tag": ["Attack"]
-        }
-    ]
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [10, 13]
+      },
+      "category": "attack",
+      "mask": ["playerHitbox"],
+      "tag": ["Attack"]
+    }
+  ]
 }

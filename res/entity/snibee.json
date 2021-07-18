@@ -1,39 +1,39 @@
 {
-    "draw": {
-        "name": "snibee"
+  "draw": {
+    "name": "snibee"
+  },
+  "animationState": {},
+  "rigidBody": {
+    "mass": 10,
+    "airResistance": 0.5
+  },
+  "collider": [
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [10, 13],
+        "maxClipToTolerance": [3.3, 3.3]
+      },
+      "category": "physics",
+      "mask": ["terrain"],
+      "tag": ["physics"]
     },
-    "animationState": {},
-    "rigidBody": {
-        "mass": 10,
-        "airResistance": 0.5
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [10, 13],
+        "maxClipToTolerance": [3.3, 3.3]
+      },
+      "category": "enemyHitbox"
     },
-    "collider": [
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [10, 13],
-                "maxClipToTolerance": [3.3, 3.3]
-            },
-            "category": "physics",
-            "mask": ["terrain"],
-            "tag": ["physics"]
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [10, 13],
-                "maxClipToTolerance": [3.3, 3.3]
-            },
-            "category": "enemyHitbox"
-        },
-        {
-            "geometry": {
-                "type": "AABB",
-                "size": [10, 13]
-            },
-            "category": "attack",
-            "mask": ["playerHitbox"],
-            "tag": ["Attack"]
-        }
-    ]
+    {
+      "geometry": {
+        "type": "AABB",
+        "size": [10, 13]
+      },
+      "category": "attack",
+      "mask": ["playerHitbox"],
+      "tag": ["Attack"]
+    }
+  ]
 }
