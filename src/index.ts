@@ -2,7 +2,7 @@ import { application, initializeApplication } from '@core/application'
 import * as Art from '@core/graphics/art'
 import * as Sound from '@core/sound/sound'
 import * as Font from '@core/font/font'
-import { TitleWorldFactory } from '@game/worlds/titleWorldFactory'
+import { totalFlow } from '@game/flow/flow'
 
 export class Main {
   /*+.† INITIALIZATION †.+*/
@@ -12,8 +12,10 @@ export class Main {
     await Sound.init()
     Font.init()
 
-    const world = new TitleWorldFactory().create()
-    world.start()
+    const flow = totalFlow()
+    application.ticker.add(() => {
+      flow.next()
+    })
 
     /* eslint @typescript-eslint/no-var-requires: 0 */
     const Stats = require('stats.js')

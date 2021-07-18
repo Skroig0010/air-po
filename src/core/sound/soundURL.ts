@@ -3,6 +3,7 @@
 // you can update this file by type "yarn metabuild" command.
 
 import airJet from '@res/sound/airJet.ogg'
+import bgm1 from '@res/sound/bgm1.mp3'
 import burner from '@res/sound/burner.ogg'
 import danball from '@res/sound/danball.ogg'
 import dandelionShot from '@res/sound/dandelionShot.ogg'
@@ -29,6 +30,7 @@ import start from '@res/sound/start.ogg'
 
 export const soundURL = {
   airJet,
+  bgm1,
   burner,
   danball,
   dandelionShot,

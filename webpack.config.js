@@ -37,6 +37,11 @@ module.exports = {
         loader: 'url-loader',
       },
       {
+        test: /\.mp3$/,
+        exclude: /node_modules/,
+        loader: 'url-loader',
+      },
+      {
         test: /\.fnt$/,
         exclude: /node_modules/,
         loader: 'raw-loader',

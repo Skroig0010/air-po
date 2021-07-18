@@ -7,6 +7,7 @@ export type SoundName = keyof typeof soundURL
 export type PlayOptions = {
   volume: number
   pan?: number
+  loop?: boolean
 }
 
 const ctx = new AudioContext()
@@ -18,6 +19,7 @@ export const play = (name: SoundName, options: PlayOptions = { volume: 0.1 }): S
 
   const source = ctx.createBufferSource()
   source.buffer = buffer
+  source.loop = options.loop ?? false
 
   let node: AudioNode = source
 
@@ -35,7 +37,7 @@ export const play = (name: SoundName, options: PlayOptions = { volume: 0.1 }): S
   }
   node.connect(ctx.destination)
 
-  const instance = new SoundInstance(options, gainNode, panNode)
+  const instance = new SoundInstance(options, source, gainNode, panNode)
 
   source.start(0)
   source.onended = (): void => {

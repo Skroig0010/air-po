@@ -8,6 +8,11 @@ declare module '*.ogg' {
   export = value
 }
 
+declare module '*.mp3' {
+  const value: string
+  export = value
+}
+
 declare module '*.fnt' {
   const value: string
   export = value

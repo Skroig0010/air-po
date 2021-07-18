@@ -4,13 +4,12 @@ import { Container, Graphics } from 'pixi.js'
 import DrawSystem from '@game/systems/drawSystem'
 import CameraSystem from '@game/systems/cameraSystem'
 import { ControlSystem } from '@game/systems/controlSystem'
-import { titleWorldAI } from '@game/ai/world/title/titleWorldAI'
 import { loadStage } from '@game/stage/stageLoader'
 import BackgroundSystem from '@game/systems/backgroundSystem'
 
 export class TitleWorldFactory {
   public create(): World {
-    const world = new World(titleWorldAI)
+    const world = new World()
 
     const cameraContainer = new Container()
 

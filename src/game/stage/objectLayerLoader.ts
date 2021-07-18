@@ -5,34 +5,10 @@ import { assert } from '@utils/assertion'
 import { Vec2 } from '@core/math/vec2'
 import { objectList } from './objectList'
 import { Stage } from './stage'
+import { CustomPropertyType } from './customProperty'
+import { StageObject, StageObjectType, calcCenter } from './object'
 
 type ObjectName = keyof typeof objectList
-
-const CustomPropertyValueType = t.union([t.boolean, t.number, t.string])
-type CustomPropertyValue = t.TypeOf<typeof CustomPropertyValueType>
-
-const CustomPropertyType = t.type({
-  name: t.string,
-  type: t.string,
-  value: CustomPropertyValueType,
-})
-type CustomProperty = t.TypeOf<typeof CustomPropertyType>
-
-const StageObjectType = t.type({
-  gid: t.union([t.number, t.undefined]),
-  height: t.number,
-  id: t.number,
-  name: t.string,
-  properties: t.union([t.array(CustomPropertyType), t.undefined]),
-  rotation: t.number,
-  type: t.string,
-  visible: t.boolean,
-  width: t.number,
-  x: t.number,
-  y: t.number,
-  ellipse: t.union([t.boolean, t.undefined]),
-})
-export type StageObject = t.TypeOf<typeof StageObjectType>
 
 export const ObjectLayerType = t.type({
   draworder: t.literal('topdown'),
@@ -51,17 +27,6 @@ export type ObjectLayer = t.TypeOf<typeof ObjectLayerType>
 type PlayerSpawner = {
   id: number
   pos: Vec2
-}
-
-export const getCustomProperty = <T extends CustomPropertyValue>(
-  object: { properties?: Array<CustomProperty> },
-  propertyName: string
-): T | undefined =>
-  object.properties?.find(property => property.name === propertyName)?.value as T | undefined
-
-export const calcCenter = (object: StageObject): Vec2 => {
-  const { x, y, width, height, ellipse } = object
-  return new Vec2(x + width / 2, ellipse ? y + height / 2 : y - height / 2)
 }
 
 const buildSpawner = (object: StageObject): PlayerSpawner => {

@@ -317,7 +317,7 @@
  "nextobjectid":57,
  "orientation":"orthogonal",
  "renderorder":"right-up",
- "tiledversion":"1.4.3",
+ "tiledversion":"2021.03.23",
  "tileheight":8,
  "tilesets":[
         {
@@ -382,6 +382,6 @@
         }],
  "tilewidth":8,
  "type":"map",
- "version":1.4,
+ "version":1.5,
  "width":420
 }

@@ -1,7 +1,7 @@
 import { Entity } from '@core/ecs/entity'
 import { World } from '@core/ecs/world'
 import { PositionComponent } from '@game/components/positionComponent'
-import { calcCenter, StageObject } from '@game/stage/objectLayerLoader'
+import { calcCenter, StageObject } from '@game/stage/object'
 import { EntityFactory } from './entityFactory'
 import { EntityName, loadEntity } from './loader/EntityLoader'
 

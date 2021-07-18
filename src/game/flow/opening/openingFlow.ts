@@ -3,13 +3,15 @@ import { Entity } from '@core/ecs/entity'
 import { World } from '@core/ecs/world'
 import { DrawComponent } from '@game/components/drawComponent'
 import { MouseController } from '@game/systems/controlSystem'
-import { GameWorldFactory } from '@game/worlds/gameWorldFactory'
 import { PositionComponent } from '@game/components/positionComponent'
 import { CameraComponent } from '@game/components/cameraComponent'
 import { parallelAny } from '@core/behaviour/composite'
 import { FadeOut } from '../common/animation/fadeOut'
 import { savePlayData, StoryStatus } from '@game/playdata/playdata'
 import { createSprite } from '@core/graphics/art'
+import { OpeningWorldFactory } from '@game/worlds/openingWorldFactory'
+import { Flow } from '../flow'
+import { gameFlow } from '../game/gameFlow'
 
 const camera = function*(world: World): Behaviour<void> {
   const camera = new Entity()
@@ -52,15 +54,17 @@ const waitInput = function*(): Behaviour<void> {
   while (!MouseController.isMousePressed('Left')) yield
 }
 
-export const openingWorldAI = function*(world: World): Behaviour<void> {
-  yield* parallelAny([player(world), camera(world), waitInput()])
-
-  yield* FadeOut(world)
-
+export const openingFlow = function*(): Flow {
+  const world = new OpeningWorldFactory().create()
+  yield* parallelAny([
+    world.execute(),
+    (function*(): Generator<void> {
+      yield* parallelAny([player(world), camera(world), waitInput()])
+      yield* FadeOut(world)
+    })(),
+  ])
+  world.end()
   savePlayData({ status: StoryStatus.Stage, mapName: 'root' })
 
-  const gameWorldFactory = new GameWorldFactory()
-  const gameWorld = gameWorldFactory.create('root')
-  gameWorldFactory.spawnPlayer(0)
-  gameWorld.start()
+  return gameFlow('root')
 }

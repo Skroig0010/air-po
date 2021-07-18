@@ -16,7 +16,7 @@
          "name":"background",
          "objects":[
                 {
-                 "gid":120,
+                 "gid":126,
                  "height":1200,
                  "id":47,
                  "name":"",
@@ -197,6 +197,12 @@
          "id":1,
          "name":"map",
          "opacity":1,
+         "properties":[
+                {
+                 "name":"bgm",
+                 "type":"string",
+                 "value":"bgm1"
+                }],
          "type":"tilelayer",
          "visible":true,
          "width":100,
@@ -229,7 +235,7 @@
  "nextobjectid":48,
  "orientation":"orthogonal",
  "renderorder":"right-up",
- "tiledversion":"1.4.3",
+ "tiledversion":"2021.03.23",
  "tileheight":8,
  "tilesets":[
         {
@@ -289,11 +295,11 @@
          "source":"tileset\/mushroom.json"
         }, 
         {
-         "firstgid":120,
+         "firstgid":126,
          "source":"tileset\/background1.json"
         }],
  "tilewidth":8,
  "type":"map",
- "version":1.4,
+ "version":1.5,
  "width":100
 }

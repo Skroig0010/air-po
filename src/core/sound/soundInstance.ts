@@ -6,6 +6,7 @@ export class SoundInstance {
 
   constructor(
     public options: PlayOptions,
+    private source: AudioBufferSourceNode,
     private gainNode: GainNode,
     private panNode?: StereoPannerNode
   ) {}
@@ -29,5 +30,9 @@ export class SoundInstance {
 
   get completed(): boolean {
     return this._completed
+  }
+
+  stop(): void {
+    this.source.stop(0)
   }
 }

@@ -1,8 +1,9 @@
 import { World } from '@core/ecs/world'
 import { BackgroundFactory } from '@game/entities/backgroundFactory'
 import { assert } from '@utils/assertion'
-import { getCustomProperty, ObjectLayer } from './objectLayerLoader'
+import { ObjectLayer } from './objectLayerLoader'
 import { TileSet } from './tileLayerLoader'
+import { getCustomProperty } from './customProperty'
 
 export const loadBackgroundLayer = (
   layer: ObjectLayer,

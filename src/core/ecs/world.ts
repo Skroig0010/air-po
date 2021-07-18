@@ -2,9 +2,8 @@ import { Entity } from './entity'
 import { System } from './system'
 import { EventNotifier } from '@utils/eventNotifier'
 import { Container } from 'pixi.js'
-import { application } from '../application'
-import { Behaviour } from '../behaviour/behaviour'
 import { ProcessManager } from '@utils/proc'
+import { application } from '@core/application'
 
 export class World {
   private readonly entities: Set<Entity>
@@ -13,46 +12,26 @@ export class World {
   public readonly stage: Container
   public readonly entityAddedEvent: EventNotifier<Entity>
   public readonly entityRemovedEvent: EventNotifier<Entity>
-  public readonly behaviour: Behaviour<void>
-  private paused = false
 
-  private readonly _updateCallback = (): void => {
-    if (this.paused) return
-    const { done } = this.behaviour.next()
-
-    this.processManager.execute()
-
-    if (!!done === true) {
-      this.end()
-    }
-  }
-
-  public constructor(behaviour: (world: World) => Behaviour<void>) {
+  public constructor() {
     this.entities = new Set()
     this.systems = new Set()
     this.processManager = new ProcessManager()
     this.stage = new Container()
     this.entityAddedEvent = new EventNotifier()
     this.entityRemovedEvent = new EventNotifier()
-    this.behaviour = behaviour(this)
   }
 
-  public start(): void {
+  public *execute(): Generator<void> {
     application.stage.addChild(this.stage)
-    application.ticker.add(this._updateCallback)
+    while (true) {
+      this.processManager.execute()
+      yield
+    }
   }
 
   public end(): void {
-    application.ticker.remove(this._updateCallback)
     application.stage.removeChild(this.stage)
-  }
-
-  public pause(): void {
-    this.paused = true
-  }
-
-  public resume(): void {
-    this.paused = false
   }
 
   public get entitySet(): Set<Entity> {

@@ -1,16 +1,15 @@
 import { World } from '@core/ecs/world'
 import { ControlSystem } from '@game/systems/controlSystem'
-import { pauseWorldAI } from '@game/ai/world/pause/pauseWorldAI'
 import DrawSystem from '@game/systems/drawSystem'
 import { Container, filters, Graphics } from 'pixi.js'
 import { windowSize } from '@core/application'
 import { CameraFactory } from '@game/entities/cameraFactory'
 
 export class PauseWorldFactory {
-  public create(gameWorld: World): World {
+  public create(): { world: World; alphaFilter: filters.AlphaFilter } {
     const alphaFilter = new filters.AlphaFilter(0)
 
-    const world = new World(pauseWorldAI(gameWorld, alphaFilter))
+    const world = new World()
 
     const background = new Graphics()
     background.beginFill(0, 0.5)
@@ -42,6 +41,6 @@ export class PauseWorldFactory {
     const camera = new CameraFactory().create()
     world.addEntity(camera)
 
-    return world
+    return { world, alphaFilter }
   }
 }

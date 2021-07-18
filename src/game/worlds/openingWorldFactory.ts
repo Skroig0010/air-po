@@ -4,11 +4,10 @@ import { Container, Graphics } from 'pixi.js'
 import DrawSystem from '@game/systems/drawSystem'
 import CameraSystem from '@game/systems/cameraSystem'
 import { ControlSystem } from '@game/systems/controlSystem'
-import { openingWorldAI } from '@game/ai/world/opening/openingWorldAI'
 
 export class OpeningWorldFactory {
   public create(): World {
-    const world = new World(openingWorldAI)
+    const world = new World()
 
     const cameraContainer = new Container()
 

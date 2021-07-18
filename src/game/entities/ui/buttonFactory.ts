@@ -72,7 +72,7 @@ export class ButtonFactory extends EntityFactory {
         child: {
           sprite: drawContainer,
         },
-        type: 'WorldUI',
+        type: 'UI',
       })
     )
 
